@@ -13,7 +13,7 @@ function Navbar() {
   return (
     <>
       <div className='w-full h-auto top-0 poppins-medium cursor-pointer z-20 sticky backdrop-blur-lg'>
-        <div className='w-full h-full flex justify-between items-center px-4 py-3 md:px-8 xl:justify-evenly'>
+        <div className='w-full h-full flex justify-between items-center px-4 pt-3 md:px-8 xl:justify-evenly'>
           
           <div className='flex items-center space-x-1'>
             <Logo />
@@ -37,12 +37,12 @@ function Navbar() {
           <button className='focus:outline-none' onClick={toggleMenu}>
               {isMenuOpen ? (
         
-                <svg className='w-8 h-8 text-purple-800' fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg className='w-6 h-6 text-purple-800' fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
               ) : (
         
-                <svg className='w-8 h-8 text-purple-800' fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg className='w-6 h-6 text-purple-800' fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
               )}

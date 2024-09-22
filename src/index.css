@@ -128,3 +128,27 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #9951DB; /* Scrollbar color on hover */
 }
+
+.wrapper::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120vw; /* Corrected from '120vwax' */
+  height: 120vw; /* Corrected from '120vwax' */
+  opacity: 0.4;
+  background: repeating-conic-gradient(
+    from 0deg,
+    white 15deg 20deg,
+    transparent 15deg 27deg
+  );
+  -webkit-mask-image: radial-gradient(
+    rgba(255, 255, 255, 0.05) 15%,
+    rgba(255, 255, 255, 0.7) 50%
+  );
+  mask-image: radial-gradient(
+    rgba(255, 255, 255, 0.05) 15%,
+    rgba(255, 255, 255, 0.7) 50%
+  );
+}
