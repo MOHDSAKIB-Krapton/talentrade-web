@@ -12,12 +12,12 @@ function Features() {
           <p className="mt-4 description">{description}</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 ">
           {features.map((feature, index) => (
             <Card
               key={index}
               style={{ transition: "transform 0.3s ease-in-out" }}
-              className="shadow-lg rounded-lg transition-transform duration-700 ease-in-out transform hover:scale-105 "
+              className="shadow-md hover:shadow-md cursor-pointer rounded-lg transition-transform duration-500 ease-in transform hover:scale-[1.03] border border-gray-200"
             >
               <CardContent>
                 <div className="flex justify-center mb-4">

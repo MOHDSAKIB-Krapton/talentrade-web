@@ -12,7 +12,7 @@ import {
 
 function App() {
   return (
-    <div className="w-screen min-h-screen">
+    <div className="w-full min-h-screen">
       <Navbar />
       <main className="w-full overflow-hidden">
         <HeroSection />

@@ -1,58 +1,67 @@
-import { motion } from 'framer-motion';
-import { LogIn, UserPlus, BookOpen, Bell, Video, Coins, GraduationCap } from 'lucide-react';
+import { motion } from "framer-motion";
+import {
+  LogIn,
+  UserPlus,
+  BookOpen,
+  Bell,
+  Video,
+  Coins,
+  GraduationCap,
+} from "lucide-react";
 
 const elements = [
   {
-    title: 'Sign Up',
-    description: 'Create your account and join the TalentTrade community.',
+    title: "Sign Up",
+    description: "Create your account and join the TalentTrade community.",
     icon: LogIn,
-    color: '#8CC63F'
+    color: "#8CC63F",
   },
   {
-    title: 'Set Up Profile',
-    description: 'List your skills to teach and skills you want to learn.',
+    title: "Set Up Profile",
+    description: "List your skills to teach and skills you want to learn.",
     icon: UserPlus,
-    color: '#29ABE2'
+    color: "#29ABE2",
   },
   {
-    title: 'Offer to Teach',
-    description: 'Share your expertise by offering to teach your skills.',
+    title: "Offer to Teach",
+    description: "Share your expertise by offering to teach your skills.",
     icon: BookOpen,
-    color: '#39B54A'
+    color: "#39B54A",
   },
   {
-    title: 'Accept Requests',
-    description: 'Engage with learners by accepting teaching requests.',
+    title: "Accept Requests",
+    description: "Engage with learners by accepting teaching requests.",
     icon: Bell,
-    color: '#FBB03B'
+    color: "#FBB03B",
   },
   {
-    title: 'Teach',
-    description: 'Conduct teaching sessions and share your knowledge.',
+    title: "Teach",
+    description: "Conduct teaching sessions and share your knowledge.",
     icon: Video,
-    color: '#FF00FF'
+    color: "#FF00FF",
   },
   {
-    title: 'Earn Coins',
-    description: 'Get rewarded with TalentTrade coins for your teaching.',
+    title: "Earn Coins",
+    description: "Get rewarded with TalentTrade coins for your teaching.",
     icon: Coins,
-    color: '#FF6600'
+    color: "#FF6600",
   },
   {
-    title: 'Learn',
-    description: 'Use your earned coins to learn new skills from others.',
+    title: "Learn",
+    description: "Use your earned coins to learn new skills from others.",
     icon: GraduationCap,
-    color: '#9E005D'
-  }
+    color: "#9E005D",
+  },
 ];
 
 export default function TalentTradeCycle() {
   return (
     <>
-    <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-20 mt-10 text-center">How TalentTrade Works</h1>
-    <div className=" min-h-screen flex flex-col items-center justify-center p-4 mb-20">
-    
-      <div className="relative w-full max-w-lg aspect-square">
+      <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-20 mt-10 text-center">
+        How TalentTrade Works
+      </h1>
+      <div className=" min-h-screen flex flex-col items-center justify-center p-4 mb-20">
+        {/* <div className="relative w-full max-w-lg aspect-square">
         <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
           {elements.map((element, index) => {
             const angle = (index / elements.length) * 2 * Math.PI - Math.PI / 2;
@@ -79,7 +88,6 @@ export default function TalentTradeCycle() {
           })}
         </svg>
 
-        {/* Floating Icon Elements */}
         {elements.map((element, index) => {
           const angle = (index / elements.length) * 2 * Math.PI - Math.PI / 2;
           const x = 35 + 60 * Math.cos(angle); // Adjust radius for element positioning
@@ -106,8 +114,37 @@ export default function TalentTradeCycle() {
             </motion.div>
           );
         })}
+      </div> */}
+
+        <div className="border border-black flex justify-center items-center rounded-full w-96 h-96 relative">
+          <h2 className="text-2xl font-semibold tracking-wide flex flex-col justify-center items-center">
+            Talentrade
+            <span className="text-xl font-semibold text-gray-600">cycle</span>
+          </h2>
+
+          <div
+            className="w-40 h-40 rounded-full border border-gray-200 absolute top-0 transform -translate-y-1/2 bg-white cursor-pointer border-b-8"
+            style={{
+              boxShadow:
+                "0 -10px 15px -3px rgba(0, 0, 0, 0.1), 0 -4px 6px -2px rgba(0, 0, 0, 0.05)", // Custom shadow control
+            }}
+          ></div>
+          <div
+            className="w-40 h-40 rounded-full border border-gray-200 absolute bottom-0 left-0 bg-white "
+            style={{
+              boxShadow:
+                "-6px 10px 15px -3px rgba(0, 0, 0, 0.1), -6px 4px 6px -2px rgba(0, 0, 0, 0.05)", // Custom shadow control
+            }}
+          ></div>
+          <div
+            className="w-40 h-40 rounded-full border border-gray-200 absolute bottom-0 transform translate-x-full bg-white "
+            style={{
+              boxShadow:
+                "6px 10px 15px -3px rgba(0, 0, 0, 0.1), 6px 4px 6px -2px rgba(0, 0, 0, 0.05)", // Custom shadow control
+            }}
+          ></div>
+        </div>
       </div>
-    </div>
     </>
   );
 }
