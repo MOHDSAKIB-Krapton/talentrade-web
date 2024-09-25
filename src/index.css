@@ -3,130 +3,135 @@
 @tailwind utilities;
 
 .poppins-thin {
-    font-family: "Poppins", sans-serif;
-    font-weight: 100;
-    font-style: normal;
-  }
-  
-  .poppins-extralight {
-    font-family: "Poppins", sans-serif;
-    font-weight: 200;
-    font-style: normal;
-  }
-  
-  .poppins-light {
-    font-family: "Poppins", sans-serif;
-    font-weight: 300;
-    font-style: normal;
-  }
-  
-  .poppins-regular {
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  .poppins-medium {
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    font-style: normal;
-  }
-  
-  .poppins-semibold {
-    font-family: "Poppins", sans-serif;
-    font-weight: 600;
-    font-style: normal;
-  }
-  
-  .poppins-bold {
-    font-family: "Poppins", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-  }
-  
-  .poppins-extrabold {
-    font-family: "Poppins", sans-serif;
-    font-weight: 800;
-    font-style: normal;
-  }
-  
-  .poppins-black {
-    font-family: "Poppins", sans-serif;
-    font-weight: 900;
-    font-style: normal;
-  }
-  
-  .poppins-thin-italic {
-    font-family: "Poppins", sans-serif;
-    font-weight: 100;
-    font-style: italic;
-  }
-  
-  .poppins-extralight-italic {
-    font-family: "Poppins", sans-serif;
-    font-weight: 200;
-    font-style: italic;
-  }
-  
-  .poppins-light-italic {
-    font-family: "Poppins", sans-serif;
-    font-weight: 300;
-    font-style: italic;
-  }
-  
-  .poppins-regular-italic {
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-style: italic;
-  }
-  
-  .poppins-medium-italic {
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    font-style: italic;
-  }
-  
-  .poppins-semibold-italic {
-    font-family: "Poppins", sans-serif;
-    font-weight: 600;
-    font-style: italic;
-  }
-  
-  .poppins-bold-italic {
-    font-family: "Poppins", sans-serif;
-    font-weight: 700;
-    font-style: italic;
-  }
-  
-  .poppins-extrabold-italic {
-    font-family: "Poppins", sans-serif;
-    font-weight: 800;
-    font-style: italic;
-  }
-  
-  .poppins-black-italic {
-    font-family: "Poppins", sans-serif;
-    font-weight: 900;
-    font-style: italic;
-  }
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
 
-  /* global.css */
+.poppins-extralight {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.poppins-light {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poppins-medium {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.poppins-semibold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.poppins-bold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.poppins-extrabold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.poppins-black {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.poppins-thin-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.poppins-extralight-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.poppins-light-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.poppins-regular-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.poppins-medium-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.poppins-semibold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.poppins-bold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.poppins-extrabold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: italic;
+}
+
+.poppins-black-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+}
+
+/* global.css */
 ::-webkit-scrollbar {
   width: 4px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #F5EBFF; /* Scrollbar track background */
+  background: #F5EBFF;
+  /* Scrollbar track background */
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #aa65eb; /* Scrollbar color */
-  border-radius: 10px; /* Scrollbar thumb rounded corners */
-  border: 2px solid transparent; /* Add some padding around the scrollbar thumb */
+  background-color: #aa65eb;
+  /* Scrollbar color */
+  border-radius: 10px;
+  /* Scrollbar thumb rounded corners */
+  border: 2px solid transparent;
+  /* Add some padding around the scrollbar thumb */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #9951DB; /* Scrollbar color on hover */
+  background: #9951DB;
+  /* Scrollbar color on hover */
 }
 
 .wrapper::before {
@@ -135,20 +140,46 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 120vw; /* Corrected from '120vwax' */
-  height: 120vw; /* Corrected from '120vwax' */
+  width: 120vw;
+  /* Corrected from '120vwax' */
+  height: 120vw;
+  /* Corrected from '120vwax' */
   opacity: 0.4;
-  background: repeating-conic-gradient(
-    from 0deg,
-    white 15deg 20deg,
-    transparent 15deg 27deg
-  );
-  -webkit-mask-image: radial-gradient(
-    rgba(255, 255, 255, 0.05) 15%,
-    rgba(255, 255, 255, 0.7) 50%
-  );
-  mask-image: radial-gradient(
-    rgba(255, 255, 255, 0.05) 15%,
-    rgba(255, 255, 255, 0.7) 50%
-  );
+  background: repeating-conic-gradient(from 0deg,
+      white 15deg 20deg,
+      transparent 15deg 27deg);
+  -webkit-mask-image: radial-gradient(rgba(255, 255, 255, 0.05) 15%,
+      rgba(255, 255, 255, 0.7) 50%);
+  mask-image: radial-gradient(rgba(255, 255, 255, 0.05) 15%,
+      rgba(255, 255, 255, 0.7) 50%);
+}
+
+
+.heading {
+  font-size: 2.25rem
+    /* 36px */
+  ;
+  line-height: 2.5rem
+    /* 40px */
+  ;
+  font-weight: 700;
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity))
+    /* #000000 */
+  ;
+  letter-spacing: 0.025em;
+}
+
+.description {
+
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99 / var(--tw-text-opacity))
+    /* #4b5563 */
+  ;
+  font-size: 1.125rem
+    /* 18px */
+  ;
+  line-height: 1.75rem
+    /* 28px */
+  ;
 }

@@ -1,63 +1,120 @@
-import React , {useState  , useEffect} from 'react';
-import Button from '@mui/material/Button';
-import SendIcon from '@mui/icons-material/Send';
-import { Logo , Name } from '../../assets';
+import React, { useState, useEffect } from "react";
+import Button from "@mui/material/Button";
+import SendIcon from "@mui/icons-material/Send";
+import { Logo, Name } from "../../assets";
 
 function Navbar() {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    const toggleMenu = () => {
-      setIsMenuOpen(!isMenuOpen);
-    };
-  
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <>
-      <div className='w-full h-auto top-0 poppins-medium cursor-pointer z-20 sticky backdrop-blur-lg'>
-        <div className='w-full h-full flex justify-between items-center px-4 pt-3 md:px-8 xl:justify-evenly'>
-          
-          <div className='flex items-center space-x-1'>
+      <div className="w-full h-auto top-0 poppins-medium cursor-pointer z-20 sticky backdrop-blur-lg max-w-7xl mx-auto">
+        <div className="w-full h-full flex justify-between items-center px-4 pt-3 md:px-8">
+          <div className="flex items-center space-x-1">
             <Logo />
             <Name />
           </div>
 
-          <div className='hidden md:flex space-x-6 lg:space-x-16'>
-            <a href="#" className="navoptions hover:text-[#9951DB] ease-linear">About Us</a>
-            <a href="#" className="navoptions hover:text-[#9951DB] ease-linear">Services</a>
-            <a href="#" className="navoptions hover:text-[#9951DB] ease-linear">Pricing</a>
-            <a href="#" className="navoptions hover:text-[#9951DB] ease-linear">Blog</a>
+          <div className="hidden md:flex space-x-6 lg:space-x-16">
+            <a href="#" className="navoptions hover:text-[#9951DB] ease-linear">
+              About Us
+            </a>
+            <a href="#" className="navoptions hover:text-[#9951DB] ease-linear">
+              Services
+            </a>
+            <a href="#" className="navoptions hover:text-[#9951DB] ease-linear">
+              Pricing
+            </a>
+            <a href="#" className="navoptions hover:text-[#9951DB] ease-linear">
+              Blog
+            </a>
           </div>
 
-          <div className='hidden md:block'>
-            <Button variant="contained" className='cursor-pointer' style={{background: '#9951DB', width: 'auto', fontFamily: "Poppins, sans-serif"}} endIcon={<SendIcon />}>
+          <div className="hidden md:block">
+            <Button
+              variant="contained"
+              className="cursor-pointer"
+              style={{
+                background: "#9951DB",
+                width: "auto",
+                fontFamily: "Poppins, sans-serif",
+              }}
+              endIcon={<SendIcon />}
+            >
               Start Learning
             </Button>
           </div>
 
-          <div className='md:hidden flex items-center'>
-          <button className='focus:outline-none' onClick={toggleMenu}>
+          <div className="md:hidden flex items-center">
+            <button className="focus:outline-none" onClick={toggleMenu}>
               {isMenuOpen ? (
-        
-                <svg className='w-6 h-6 text-purple-800' fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+                <svg
+                  className="w-6 h-6 text-purple-800"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  ></path>
                 </svg>
               ) : (
-        
-                <svg className='w-6 h-6 text-purple-800' fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                <svg
+                  className="w-6 h-6 text-purple-800"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  ></path>
                 </svg>
               )}
             </button>
           </div>
-          
         </div>
 
-        <div className={`md:hidden overflow-hidden flex flex-col items-center space-y-4 pb-4 transition-all duration-300 ease-in-out ${isMenuOpen ? 'min-h-50 opacity-100' : 'max-h-0 opacity-0'}`}>
-          <a href="#" className="navoptions hover:text-[#9951DB] ease-linear">About Us</a>
-          <a href="#" className="navoptions hover:text-[#9951DB] ease-linear">Services</a>
-          <a href="#" className="navoptions hover:text-[#9951DB] ease-linear">Pricing</a>
-          <a href="#" className="navoptions hover:text-[#9951DB] ease-linear">Blog</a>
+        <div
+          className={`md:hidden overflow-hidden flex flex-col items-center space-y-4 pb-4 transition-all duration-300 ease-in-out ${
+            isMenuOpen ? "min-h-50 opacity-100" : "max-h-0 opacity-0"
+          }`}
+        >
+          <a href="#" className="navoptions hover:text-[#9951DB] ease-linear">
+            About Us
+          </a>
+          <a href="#" className="navoptions hover:text-[#9951DB] ease-linear">
+            Services
+          </a>
+          <a href="#" className="navoptions hover:text-[#9951DB] ease-linear">
+            Pricing
+          </a>
+          <a href="#" className="navoptions hover:text-[#9951DB] ease-linear">
+            Blog
+          </a>
 
-          <Button variant="outlined" className='cursor-pointer w-full' style={{ color: '#9951DB', borderColor: '#9951DB', width: 'auto', fontFamily: "Poppins, sans-serif" }} endIcon={<SendIcon />}>
+          <Button
+            variant="outlined"
+            className="cursor-pointer w-full"
+            style={{
+              color: "#9951DB",
+              borderColor: "#9951DB",
+              width: "auto",
+              fontFamily: "Poppins, sans-serif",
+            }}
+            endIcon={<SendIcon />}
+          >
             Start Learning
           </Button>
         </div>
