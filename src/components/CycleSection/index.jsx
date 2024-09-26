@@ -60,89 +60,118 @@ export default function TalentTradeCycle() {
       <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-20 mt-10 text-center">
         How TalentTrade Works
       </h1>
-      <div className=" min-h-screen flex flex-col items-center justify-center p-4 mb-20">
-        {/* <div className="relative w-full max-w-lg aspect-square">
-        <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
-          {elements.map((element, index) => {
-            const angle = (index / elements.length) * 2 * Math.PI - Math.PI / 2;
-            const x = 50 + 35 * Math.cos(angle); // Adjusted radius
-            const y = 50 + 35 * Math.sin(angle);
-            const startAngle = (index / elements.length) * 360;
-            const endAngle = ((index + 1) / elements.length) * 360;
 
-            return (
-              <g key={index}>
-                <motion.path
-                  d={`M50,50 L${50 + 35 * Math.cos(startAngle * Math.PI / 180)},${50 + 35 * Math.sin(startAngle * Math.PI / 180)} 
-                  A35,35 0 0,1 ${50 + 35 * Math.cos(endAngle * Math.PI / 180)},${50 + 35 * Math.sin(endAngle * Math.PI / 180)}`}
-                  fill="none"
-                  stroke={element.color}
-                  strokeWidth="6"
-                  initial={{ pathLength: 0 }}
-                  animate={{ pathLength: 1 }}
-                  transition={{ duration: 1, delay: index * 0.2 }}
-                />
-                <circle cx={x} cy={y} r="8" fill="white" stroke={element.color} strokeWidth="2" />
-              </g>
-            );
-          })}
-        </svg>
+      <div className=" min-h-screen flex flex-col items-center justify-center p-4 mb-20 overflow-hidden">
+        <div className="flex flex-col gap-y-5 mb-4 justify-center items-center">
+          <div className=" flex flex-col gap-y-2 justify-center items-center">
+            <h2 className="text-xl font-semibold tracking-wide text-center">
+              Create Your Account
+            </h2>
+            <p className="text-center text-gray-600 font-medium text-sm px-2">
+              Join TalentTrade and unlock a world of skill exchange. Set up your
+              profile, connect with experts, and start your learning journey by
+              teaching and learning new skills.
+            </p>
+          </div>
 
-        {elements.map((element, index) => {
-          const angle = (index / elements.length) * 2 * Math.PI - Math.PI / 2;
-          const x = 35 + 60 * Math.cos(angle); // Adjust radius for element positioning
-          const y = 33 + 60 * Math.sin(angle);
+          <div
+            className=" w-32 h-32 md:w-40 md:h-40 rounded-full bg-white cursor-pointer border-b-8  border-red-600 flex justify-center items-center hover:transform hover:scale-105 ease-in-out duration-500"
+            style={{
+              boxShadow:
+                "0 -10px 15px -3px rgba(0, 0, 0, 0.1), 0 -4px 6px -2px rgba(0, 0, 0, 0.05)", // Custom shadow control
+            }}
+          >
+            <img
+              src="./team.png"
+              alt="Join talentrade"
+              className="w-16 h-16 md:w-20 md:h-20 object-contain"
+            />
+          </div>
 
-          return (
-            <motion.div
-              key={index}
-              className="absolute w-40 text-center"
-              style={{
-                left: `${x}%`,
-                top: `${y}%`,
-                transform: 'translate(-50%, -50%)'
-              }}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: index * 0.2 + 1 }}
-            >
-              <div className="bg-white rounded-full p-3 shadow-lg mb-2 inline-block">
-                <element.icon className="w-6 h-6" style={{ color: element.color }} />
-              </div>
-              <h2 className="text-sm md:text-base font-semibold text-gray-800 mb-1">{element.title}</h2>
-              <p className="text-xs md:text-sm text-gray-600">{element.description}</p>
-            </motion.div>
-          );
-        })}
-      </div> */}
+          <div className="h-40 w-[2px] bg-gray-600 rounded-xl relative">
+            <div className="w-1 h-1 rounded-full bg-black absolute top-0 transform -translate-x-1/4" />
+            <div className="w-1 h-1 rounded-full bg-black absolute bottom-0 transform -translate-x-1/4" />
+          </div>
+        </div>
 
-        <div className="border border-black flex justify-center items-center rounded-full w-96 h-96 relative">
+        <div className=" flex flex-col gap-y-2 justify-center items-center mb-24">
+          <h2 className="text-xl font-semibold tracking-wide text-center">
+            Offer to Teach
+          </h2>
+          <p className="text-center text-gray-600 font-medium text-sm px-2">
+            Share your expertise with the TalentTrade community. Help others
+            grow by offering to teach the skills you've mastered.
+          </p>
+        </div>
+
+        <div className="border gray-200 flex justify-center items-center rounded-full w-80 h-80 md:w-96 md:h-96 relative ">
           <h2 className="text-2xl font-semibold tracking-wide flex flex-col justify-center items-center">
             Talentrade
             <span className="text-xl font-semibold text-gray-600">cycle</span>
           </h2>
 
           <div
-            className="w-40 h-40 rounded-full border border-gray-200 absolute top-0 transform -translate-y-1/2 bg-white cursor-pointer border-b-8"
+            className="w-32 h-32 md:w-40 md:h-40 rounded-full absolute top-0 transform -translate-y-1/2 bg-white cursor-pointer border-b-8  border-green-600 flex justify-center items-center hover:scale-105 ease-in-out duration-500"
             style={{
               boxShadow:
                 "0 -10px 15px -3px rgba(0, 0, 0, 0.1), 0 -4px 6px -2px rgba(0, 0, 0, 0.05)", // Custom shadow control
             }}
-          ></div>
+          >
+            <img
+              src="./discussion.png"
+              alt="Teach others image"
+              className="w-16 h-16 md:w-20 md:h-20 object-contain"
+            />
+          </div>
           <div
-            className="w-40 h-40 rounded-full border border-gray-200 absolute bottom-0 left-0 bg-white "
+            className="w-32 h-32 md:w-40 md:h-40 rounded-full absolute bottom-0 -translate-x-full bg-white border-r-8 border-blue-600 transform -rotate-[35deg] justify-center items-center flex hover:scale-105 ease-in-out duration-500 cursor-pointer"
             style={{
               boxShadow:
                 "-6px 10px 15px -3px rgba(0, 0, 0, 0.1), -6px 4px 6px -2px rgba(0, 0, 0, 0.05)", // Custom shadow control
             }}
-          ></div>
+          >
+            <img
+              src="./presentation.png"
+              alt="presentation image"
+              className="w-16 h-16 md:w-20 md:h-20 object-contain transform rotate-[35deg]"
+            />
+          </div>
+
           <div
-            className="w-40 h-40 rounded-full border border-gray-200 absolute bottom-0 transform translate-x-full bg-white "
+            className="w-32 h-32 md:w-40 md:h-40 rounded-full absolute bottom-0 transform translate-x-full bg-white border-t-8 border-purple-600 -rotate-[55deg] justify-center items-center flex hover:scale-105 ease-in-out duration-500 cursor-pointer"
             style={{
               boxShadow:
                 "6px 10px 15px -3px rgba(0, 0, 0, 0.1), 6px 4px 6px -2px rgba(0, 0, 0, 0.05)", // Custom shadow control
             }}
-          ></div>
+          >
+            <img
+              src="./coin.png"
+              alt="Coins image"
+              className="w-16 h-16 md:w-20 md:h-20 object-contain transform rotate-[55deg]"
+            />
+          </div>
+        </div>
+
+        <div className="flex justify-evenly items-center mt-10 max-w-96 mx-auto">
+          <div className=" flex flex-col gap-y-2 justify-center items-center mb-24 flex-1">
+            <h2 className="text-xl font-semibold tracking-wide text-center">
+              Learn New Skills
+            </h2>
+            <p className="text-center text-gray-600 font-medium text-sm px-2">
+              Use your earned TalentTrade coins to learn valuable skills from
+              others and expand your knowledge.
+            </p>
+          </div>
+
+          <div className=" flex flex-col gap-y-2 justify-center items-center mb-24 flex-1 ">
+            <h2 className="text-xl font-semibold tracking-wide text-center">
+              Earn Coins
+            </h2>
+            <p className="text-center text-gray-600 font-medium text-sm px-2">
+              Get rewarded with TalentTrade coins for every teaching session.
+              Use your coins to unlock new learning opportunities.
+            </p>
+          </div>
         </div>
       </div>
     </>

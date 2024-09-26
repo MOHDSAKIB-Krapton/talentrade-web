@@ -29,7 +29,7 @@ function Features() {
                 >
                   {feature.title}
                 </Typography>
-                <Typography variant="body2" className="text-gray-600">
+                <Typography variant="subtitle2" className="text-gray-600">
                   {feature.description}
                 </Typography>
               </CardContent>
