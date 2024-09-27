@@ -8,6 +8,7 @@ import {
   Coins,
   GraduationCap,
 } from "lucide-react";
+import "../../styles.css";
 
 const elements = [
   {
@@ -55,13 +56,23 @@ const elements = [
 ];
 
 export default function TalentTradeCycle() {
-  return (
-    <>
-      <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-20 mt-10 text-center">
-        How TalentTrade Works
-      </h1>
+  const flowHeading =
+    "How TalentTrade Works: A Seamless Skill Exchange Journey";
 
-      <div className=" min-h-screen flex flex-col items-center justify-center p-4 mb-20 overflow-hidden">
+  const flowDescription =
+    "TalentTrade simplifies the process of teaching and learning by offering a structured and rewarding system. " +
+    "Our platform is designed to make skill exchange seamless and enjoyable for everyone. Here’s how it works:";
+
+  return (
+    <div className="max-w-7xl mx-auto px-4 py-10 flex flex-col gap-y-10">
+      <div>
+        <h1 className="heading text-start xl:text-center">{flowHeading}</h1>
+        <p className="subheading text-start xl:text-center">
+          {flowDescription}
+        </p>
+      </div>
+
+      <div className=" min-h-screen flex flex-col items-center justify-center p-4 overflow-hidden">
         <div className="flex flex-col gap-y-5 mb-4 justify-center items-center">
           <div className=" flex flex-col gap-y-2 justify-center items-center max-w-96">
             <h2 className="text-xl font-semibold tracking-wide text-center">
@@ -104,7 +115,7 @@ export default function TalentTradeCycle() {
           </p>
         </div>
 
-        <div className="border gray-200 flex justify-center items-center rounded-full w-80 h-80 md:w-96 md:h-96 relative ">
+        <div className="border gray-200 flex justify-center items-center rounded-full w-80 h-80 md:w-96 md:h-96 relative">
           <h2 className="text-2xl font-semibold tracking-wide flex flex-col justify-center items-center">
             Talentrade
             <span className="text-xl font-semibold text-gray-600">cycle</span>
@@ -174,6 +185,6 @@ export default function TalentTradeCycle() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

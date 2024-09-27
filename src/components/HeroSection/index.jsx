@@ -3,7 +3,8 @@ import Button from "@mui/material/Button";
 import { aeroplane } from "../../assets";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import "../../index.css";
+// import "../../index.css";
+import "../../styles.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -46,9 +47,10 @@ function HeroSection() {
       <div className="w-full h-auto z-10 flex mt-20 lg:mt-0 items-start lg:items-center lg:h-screen absolute">
         <div className="text-start space-y-4 px-4 w-full">
           <h1 className="heading">
-            Unlock Your Potential: <br /> Learn & Teach Skills With Ease!
+            Unlock Your Potential: Learn &{" "}
+            <span className="highlight">Teach Skills With Ease!</span>
           </h1>
-          <p className=" opacity-75 lg:w-[40%] description">
+          <p className="subheading">
             Join a community where talent meets opportunity. Learn from experts
             or share your knowledge with those eager to grow.
           </p>

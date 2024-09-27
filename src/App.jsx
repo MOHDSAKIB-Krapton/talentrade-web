@@ -18,7 +18,7 @@ function App() {
         <HeroSection />
         <Features />
         <TalentTradeCycle />
-        <Section4 />
+        {/* <Section4 /> */}
         <Contact />
         <Footer />
       </main>

@@ -1,0 +1,27 @@
+/* Global Heading Styles */
+.heading {
+    font-size: 1.875rem;
+    /* equivalent to text-3xl */
+    font-weight: 700;
+    /* equivalent to font-bold */
+    letter-spacing: -0.025em;
+    /* equivalent to tracking-tight */
+    color: #1f2937;
+    /* equivalent to text-gray-900 */
+}
+
+/* Highlight Styles for Emphasis */
+.highlight {
+    color: #9951DB;
+    /* You can adjust this color as per your theme */
+}
+
+/* Global Paragraph Styles */
+.subheading {
+    margin-top: 1rem;
+    /* equivalent to mt-4 */
+    font-size: 1rem;
+    /* equivalent to text-md */
+    color: #4b5563;
+    /* equivalent to text-gray-600 */
+}

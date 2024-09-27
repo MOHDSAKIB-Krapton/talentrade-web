@@ -1,15 +1,15 @@
 import React from "react";
 import { Card, CardContent, Typography } from "@mui/material";
 import { features, heading, description } from "./constant";
-import "../../index.css";
+import "../../styles.css";
 
 function Features() {
   return (
-    <section className="w-full py-16 bg-gray-50 text-center">
+    <section className="w-full py-16 bg-gray-50 text-center border border-gray-200">
       <div className=" max-w-7xl mx-auto px-4">
         <div className="mb-12">
-          <h2 className={`heading`}>{heading}</h2>
-          <p className="mt-4 description">{description}</p>
+          <h2 className={`heading text-start`}>{heading}</h2>
+          <p className="subheading text-start">{description}</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 ">
