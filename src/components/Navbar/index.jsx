@@ -11,9 +11,9 @@ function Navbar() {
   };
 
   return (
-    <>
-      <div className="w-full h-auto top-0 poppins-medium cursor-pointer z-20 sticky backdrop-blur-lg max-w-7xl mx-auto">
-        <div className="w-full h-full flex justify-between items-center px-4 pt-3 md:px-8">
+    <div className="w-full z-20 sticky backdrop-blur-lg top-0">
+      <div className="w-full h-auto poppins-medium cursor-pointer z-20 sticky backdrop-blur-lg max-w-7xl mx-auto">
+        <div className="w-full h-full flex justify-between items-center px-4 pt-3">
           <div className="flex items-center space-x-1">
             <Logo />
             <Name />
@@ -119,7 +119,7 @@ function Navbar() {
           </Button>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

@@ -22,7 +22,6 @@ function App() {
         <Contact />
         <Footer />
       </main>
-      <div className="w-full bg-purple-500 h-12 -z-20"></div>
     </div>
   );
 }

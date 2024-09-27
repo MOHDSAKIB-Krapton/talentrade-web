@@ -63,7 +63,7 @@ export default function TalentTradeCycle() {
 
       <div className=" min-h-screen flex flex-col items-center justify-center p-4 mb-20 overflow-hidden">
         <div className="flex flex-col gap-y-5 mb-4 justify-center items-center">
-          <div className=" flex flex-col gap-y-2 justify-center items-center">
+          <div className=" flex flex-col gap-y-2 justify-center items-center max-w-96">
             <h2 className="text-xl font-semibold tracking-wide text-center">
               Create Your Account
             </h2>
@@ -94,7 +94,7 @@ export default function TalentTradeCycle() {
           </div>
         </div>
 
-        <div className=" flex flex-col gap-y-2 justify-center items-center mb-24">
+        <div className=" flex flex-col gap-y-2 justify-center items-center mb-24 max-w-96">
           <h2 className="text-xl font-semibold tracking-wide text-center">
             Offer to Teach
           </h2>
@@ -152,8 +152,8 @@ export default function TalentTradeCycle() {
           </div>
         </div>
 
-        <div className="flex justify-evenly items-center mt-10 max-w-96 mx-auto">
-          <div className=" flex flex-col gap-y-2 justify-center items-center mb-24 flex-1">
+        <div className="flex justify-evenly items-center mt-10 mx-auto">
+          <div className=" flex flex-col gap-y-2 justify-center items-center mb-24 flex-1 max-w-96">
             <h2 className="text-xl font-semibold tracking-wide text-center">
               Learn New Skills
             </h2>
@@ -163,7 +163,7 @@ export default function TalentTradeCycle() {
             </p>
           </div>
 
-          <div className=" flex flex-col gap-y-2 justify-center items-center mb-24 flex-1 ">
+          <div className=" flex flex-col gap-y-2 justify-center items-center mb-24 flex-1 max-w-96">
             <h2 className="text-xl font-semibold tracking-wide text-center">
               Earn Coins
             </h2>

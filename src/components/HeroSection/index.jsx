@@ -44,7 +44,7 @@ function HeroSection() {
   return (
     <section className="max-w-7xl mx-auto h-screen relative overflow-hidden flex">
       <div className="w-full h-auto z-10 flex mt-20 lg:mt-0 items-start lg:items-center lg:h-screen absolute">
-        <div className="text-start space-y-4 px-8 w-full">
+        <div className="text-start space-y-4 px-4 w-full">
           <h1 className="heading">
             Unlock Your Potential: <br /> Learn & Teach Skills With Ease!
           </h1>

@@ -6,7 +6,7 @@ import "../../index.css";
 function Features() {
   return (
     <section className="w-full py-16 bg-gray-50 text-center">
-      <div className=" max-w-7xl mx-auto px-8">
+      <div className=" max-w-7xl mx-auto px-4">
         <div className="mb-12">
           <h2 className={`heading`}>{heading}</h2>
           <p className="mt-4 description">{description}</p>
