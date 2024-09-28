@@ -47,13 +47,13 @@ function Footer() {
             learners and instructors through skill-sharing, creating a community
             of lifelong learners and teachers.
           </p>
-          <div className="space-x-4 my-6 ">
+          <div className="space-x-4 my-6 text-gray-600">
             <InstagramIcon
               className="hover:text-[#C13584] cursor-pointer"
               style={{ fontSize: "1.5rem" }}
             />
             <GitHubIcon
-              className="hover:text-[#833AB4] cursor-pointer"
+              className="hover:text-black cursor-pointer"
               style={{ fontSize: "1.5rem" }}
             />
             <LinkedInIcon

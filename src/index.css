@@ -183,3 +183,17 @@
     /* 28px */
   ;
 }
+
+/* Change text selection color */
+::selection {
+  background-color: #F5EBFF;
+  /* Set your desired background color for selected text */
+  color: #9951DB;
+  /* Set your desired text color for selected text */
+}
+
+/* Change caret (text cursor) color */
+* {
+  caret-color: #380666;
+  /* Set your desired caret color */
+}

@@ -43,26 +43,31 @@ function HeroSection() {
   }, []);
 
   return (
-    <section className="max-w-7xl mx-auto h-screen relative overflow-hidden flex">
-      <div className="w-full h-auto z-10 flex mt-20 lg:mt-0 items-start lg:items-center lg:h-screen absolute">
-        <div className="text-start space-y-4 px-4 w-full">
+    <section className="max-w-7xl mx-auto relative h-screen overflow-hidden flex">
+      <div className=" h-auto z-10 flex mt-10 lg:mt-20 items-start lg:items-start absolute lg:h-screen">
+        <div className="text-start space-y-4 px-4 py-10 w-full lg:max-w-[80%]">
           <h1 className="heading">
-            Unlock Your Potential: Learn &{" "}
-            <span className="highlight">Teach Skills With Ease!</span>
+            Empower Your Journey: <br className="hidden lg:block" /> Share &{" "}
+            <span className="highlight">Exchange Skills Effortlessly!</span>
           </h1>
           <p className="subheading">
-            Join a community where talent meets opportunity. Learn from experts
-            or share your knowledge with those eager to grow.
+            Become part of TalentTrade, a unique platform where skills are
+            currency. Whether you're looking to teach and pass on your expertise
+            or learn from others, this community thrives on the free exchange of
+            knowledge. Earn TalentTrade coins by offering your skills and use
+            them to acquire new ones, all without financial barriers. Empower
+            yourself and others by engaging in skill-based learning and growth.
           </p>
           <Button
             variant="contained"
             className="w-auto cursor-pointer px-8"
             style={{ background: "#9951DB", fontFamily: "Poppins, sans-serif" }}
           >
-            Get Started
+            Join TalentTrade
           </Button>
         </div>
       </div>
+
       <div className=" w-full h-full -z-10 ">
         <div
           className="right-80 bottom-40 absolute -rotate-90 z-10"

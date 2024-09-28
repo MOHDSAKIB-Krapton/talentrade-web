@@ -6,8 +6,8 @@ function Contact() {
   return (
     <div className="max-w-7xl mx-auto flex justify-between px-4 py-5">
       <div className="flex-col flex justify-center items-center mx-auto">
-        <div class=" py-10">
-          <div class="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
+        <div class=" py-10 flex">
+          <div class=" mx-auto flex-1 lg:mx-0">
             <h1 class="heading">
               Collaborate for Growth <br /> Join Forces with Our Expert{" "}
               <span class="highlight"> Skill Exchange Community</span>
@@ -159,6 +159,14 @@ function Contact() {
                 </button>
               </div>
             </form>
+          </div>
+
+          <div className="hidden md:flex md:flex-1 border border-gray-200 rounded-lg overflow-hidden ml-4">
+            <img
+              src="./contact.jpg"
+              alt="Contact img"
+              className=" object-cover"
+            />
           </div>
         </div>
       </div>
