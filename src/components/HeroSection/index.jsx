@@ -56,7 +56,7 @@ function HeroSection() {
                 fontFamily: "sans-serif",
               }}
             >
-              Join TalentTrade <ArrowRightIcon className="ml-2 h-5 w-5" />
+              Join TalenTrade <ArrowRightIcon className="ml-2 h-5 w-5" />
             </Button>
           </div>
         </div>

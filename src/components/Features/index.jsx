@@ -27,10 +27,10 @@ function Features() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 ">
           {features.map((feature, index) => (
-            <Card
+            <div
               key={index}
               style={{ transition: "transform 0.3s ease-in-out" }}
-              className="shadow-md hover:shadow-md cursor-pointer rounded-lg transition-transform duration-500 ease-in transform hover:scale-[1.03] border border-gray-200"
+              className="shadow-sm hover:shadow-md cursor-pointer rounded-lg transition-transform duration-500 ease-in transform hover:scale-[1.03] border border-gray-200 bg-white"
             >
               <CardContent>
                 <div className="flex justify-center mb-4">
@@ -42,15 +42,14 @@ function Features() {
                 >
                   {feature.title}
                 </Typography>
-                <Typography
-                  variant="subtitle2"
-                  className="text-gray-600 text-sm"
+                <p
+                  className="subheading text-sm"
                   style={{ fontsize: "2.875rem" }}
                 >
                   {feature.description}
-                </Typography>
+                </p>
               </CardContent>
-            </Card>
+            </div>
           ))}
         </div>
       </div>
