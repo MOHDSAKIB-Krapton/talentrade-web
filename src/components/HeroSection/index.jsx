@@ -1,87 +1,75 @@
 import React, { useEffect, useRef } from "react";
 import Button from "@mui/material/Button";
-import { aeroplane } from "../../assets";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-// import "../../index.css";
 import "../../styles.css";
+import { ArrowRightIcon } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 function HeroSection() {
-  const aeroplaneRef = useRef(null);
-  const circleRef = useRef(null);
+  const gridRef = useRef(null); // Create a ref for the grid container
 
   useEffect(() => {
-    const isMobile = window.innerWidth < 768;
-
-    gsap.to(aeroplaneRef.current, {
-      right: isMobile ? "70%" : "100%", // Adjust for smaller screens
-      bottom: isMobile ? "80%" : "90%",
-      scrollTrigger: {
-        trigger: aeroplaneRef.current,
-        start: "top 50%",
-        end: "top 10%",
-        scrub: 1,
-        markers: false,
-      },
-    });
-
-    gsap.to(circleRef.current, {
-      width: isMobile ? "70vw" : "100vw",
-      height: isMobile ? "70vw" : "100vw",
-      right: isMobile ? "-10vw" : 0, // Adjust position for mobile
-      borderRadius: isMobile ? "50%" : 0,
-      scrollTrigger: {
-        trigger: circleRef.current,
-        start: "top 50%",
-        end: "top 10%",
-        scrub: 1,
-        markers: false,
-      },
+    // Apply GSAP animation to the background grid
+    gsap.to(gridRef.current, {
+      backgroundPosition: "100% 0", // Move grid to the right
+      ease: "linear",
+      repeat: -1, // Infinite repeat
+      duration: 30, // Time it takes for one complete movement
     });
   }, []);
 
   return (
-    <section className="max-w-7xl mx-auto relative h-screen overflow-hidden flex">
-      <div className=" h-auto z-10 flex mt-10 lg:mt-20 items-start lg:items-start absolute lg:h-screen">
-        <div className="text-start space-y-4 px-4 py-10 w-full lg:max-w-[80%]">
-          <h1 className="heading">
-            Empower Your Journey: <br className="hidden lg:block" /> Share &{" "}
-            <span className="highlight">Exchange Skills Effortlessly!</span>
-          </h1>
-          <p className="subheading">
-            Become part of TalentTrade, a unique platform where skills are
-            currency. Whether you're looking to teach and pass on your expertise
-            or learn from others, this community thrives on the free exchange of
-            knowledge. Earn TalentTrade coins by offering your skills and use
-            them to acquire new ones, all without financial barriers. Empower
-            yourself and others by engaging in skill-based learning and growth.
-          </p>
-          <Button
-            variant="contained"
-            className="w-auto cursor-pointer px-8"
-            style={{ background: "#9951DB", fontFamily: "Poppins, sans-serif" }}
-          >
-            Join TalentTrade
-          </Button>
-        </div>
-      </div>
+    <div
+      ref={gridRef}
+      className="min-h-[40rem] w-full bg-white bg-grid-black/[0.2] relative flex items-start md:items-center justify-center"
+      style={{
+        backgroundSize: "32px 32px", // Set the grid size for the background
+        backgroundPosition: "0 0", // Initial position of the grid
+      }}
+    >
+      {/* Radial gradient for the container to give a faded look */}
+      <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
 
-      <div className=" w-full h-full -z-10 ">
-        <div
-          className="right-80 bottom-40 absolute -rotate-90 z-10"
-          ref={aeroplaneRef}
-        >
-          <img src={aeroplane} alt="aeroplane image" />
+      <section className="max-w-7xl mx-auto overflow-hidden flex flex-1">
+        <div className="flex-1 flex items-start lg:items-start pt-10 md:py-20">
+          <div className="text-center space-y-4 px-4 py-10 w-full">
+            <h1 className="heading">
+              Empower Your Journey: <br className="hidden lg:block" /> Share &{" "}
+              <span className="highlight">Exchange Skills Effortlessly!</span>
+            </h1>
+            <p className="subheading">
+              Become part of TalentTrade, a unique platform where skills are
+              currency. Whether you're looking to teach and pass on your
+              expertise or learn from others, this community thrives on the free
+              exchange of knowledge. Earn TalentTrade coins by offering your
+              skills and use them to acquire new ones, all without financial
+              barriers. Empower yourself and others by engaging in skill-based
+              learning and growth.
+            </p>
+            <Button
+              variant="contained"
+              className="w-auto cursor-pointer px-8"
+              style={{
+                background: "#9951DB",
+                fontFamily: "sans-serif",
+              }}
+            >
+              Join TalentTrade <ArrowRightIcon className="ml-2 h-5 w-5" />
+            </Button>
+          </div>
         </div>
 
-        <div
-          ref={circleRef}
-          className="w-[25vw] h-[25vw]  rounded-full absolute -bottom-8 -right-8 bg-purple-300"
-        ></div>
-      </div>
-    </section>
+        <div className="hidden md:flex md:flex-1 border border-gray-200 rounded-lg overflow-hidden z-10">
+          <img
+            src="./contact.jpg"
+            alt="Contact img"
+            className=" object-cover"
+          />
+        </div>
+      </section>
+    </div>
   );
 }
 

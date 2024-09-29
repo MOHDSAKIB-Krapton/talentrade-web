@@ -152,8 +152,19 @@
       rgba(255, 255, 255, 0.7) 50%);
   mask-image: radial-gradient(rgba(255, 255, 255, 0.05) 15%,
       rgba(255, 255, 255, 0.7) 50%);
+
+  animation: animate 10s linear infinite;
 }
 
+@keyframes animate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
 
 .heading {
   font-size: 2.25rem

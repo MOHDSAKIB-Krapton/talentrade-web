@@ -11,25 +11,37 @@ function Navbar() {
   };
 
   return (
-    <div className="w-full z-20 sticky backdrop-blur-lg top-0">
+    <div className="w-full z-50 sticky backdrop-blur-lg top-0">
       <div className="w-full h-auto poppins-medium cursor-pointer z-20 sticky backdrop-blur-lg max-w-7xl mx-auto">
-        <div className="w-full h-full flex justify-between items-center px-4 pt-3">
+        <div className="w-full h-full flex justify-between items-center px-4 py-1.5">
           <div className="flex items-center space-x-1">
             <Logo />
             <Name />
           </div>
 
           <div className="hidden md:flex space-x-6 lg:space-x-16">
-            <a href="#" className="navoptions hover:text-[#9951DB] ease-linear">
+            <a
+              href="#"
+              className="navoptions hover:text-[#9951DB] ease-linear hover:underline"
+            >
               About Us
             </a>
-            <a href="#" className="navoptions hover:text-[#9951DB] ease-linear">
+            <a
+              href="#"
+              className="navoptions hover:text-[#9951DB] ease-linear hover:underline"
+            >
               Services
             </a>
-            <a href="#" className="navoptions hover:text-[#9951DB] ease-linear">
+            <a
+              href="#"
+              className="navoptions hover:text-[#9951DB] ease-linear hover:underline"
+            >
               Pricing
             </a>
-            <a href="#" className="navoptions hover:text-[#9951DB] ease-linear">
+            <a
+              href="#"
+              className="navoptions hover:text-[#9951DB] ease-linear hover:underline"
+            >
               Blog
             </a>
           </div>
