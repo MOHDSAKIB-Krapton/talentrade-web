@@ -9,6 +9,8 @@ import {
   TalentTradeCycle,
   Section4,
 } from "./components";
+import AboutUs from "./components/AboutUs";
+import TeamSection from "./components/TeamSection";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
         <Features />
         <TalentTradeCycle />
         {/* <Section4 /> */}
+        <AboutUs />
+        <TeamSection />
         <Contact />
         <Footer />
       </main>
