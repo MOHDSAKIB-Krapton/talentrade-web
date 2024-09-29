@@ -208,3 +208,7 @@
   caret-color: #380666;
   /* Set your desired caret color */
 }
+
+html {
+  scroll-behavior: smooth;
+}
