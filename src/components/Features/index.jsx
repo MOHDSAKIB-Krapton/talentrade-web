@@ -69,6 +69,7 @@ function Features() {
   return (
     <section
       ref={sectionRef}
+      id="features"
       className="w-full py-16 bg-gray-50 text-center border border-gray-200"
     >
       <div className=" max-w-7xl mx-auto px-4 space-y-20">

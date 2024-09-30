@@ -108,6 +108,7 @@ const AboutUs = () => {
   return (
     <section
       ref={sectionRef}
+      id="aboutus"
       className="bg-gradient-to-b from-blue-50 to-white border-b border-gray-200"
     >
       <div className="max-w-7xl mx-auto py-16 px-4 text-start">

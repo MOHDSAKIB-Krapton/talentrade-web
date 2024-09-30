@@ -41,7 +41,7 @@ function Contact() {
 
   return (
     <div
-      id="contact"
+      id="contactus"
       ref={sectionRef}
       className="max-w-7xl mx-auto flex justify-between px-4 py-5"
     >

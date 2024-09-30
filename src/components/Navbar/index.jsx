@@ -21,28 +21,28 @@ function Navbar() {
 
           <div className="hidden md:flex space-x-6 lg:space-x-16">
             <a
-              href="#team"
+              href="#aboutus"
               className="navoptions hover:text-[#9951DB] ease-linear hover:underline"
             >
               About Us
             </a>
             <a
-              href="#"
+              href="#features"
               className="navoptions hover:text-[#9951DB] ease-linear hover:underline"
             >
-              Services
+              Features
             </a>
             <a
-              href="#"
+              href="#collaborate"
               className="navoptions hover:text-[#9951DB] ease-linear hover:underline"
             >
-              Pricing
+              Collaborate
             </a>
             <a
-              href="#"
+              href="#contactus"
               className="navoptions hover:text-[#9951DB] ease-linear hover:underline"
             >
-              Blog
+              Contact Us
             </a>
           </div>
 
@@ -104,19 +104,28 @@ function Navbar() {
           }`}
         >
           <a
-            href="#team"
+            href="#aboutus"
             className="navoptions hover:text-[#9951DB] ease-linear"
           >
             About Us
           </a>
-          <a href="#" className="navoptions hover:text-[#9951DB] ease-linear">
-            Services
+          <a
+            href="#features"
+            className="navoptions hover:text-[#9951DB] ease-linear"
+          >
+            Features
           </a>
-          <a href="#" className="navoptions hover:text-[#9951DB] ease-linear">
-            Pricing
+          <a
+            href="#collaborate"
+            className="navoptions hover:text-[#9951DB] ease-linear"
+          >
+            Collaborate
           </a>
-          <a href="#" className="navoptions hover:text-[#9951DB] ease-linear">
-            Blog
+          <a
+            href="#contactus"
+            className="navoptions hover:text-[#9951DB] ease-linear"
+          >
+            Contact Us
           </a>
 
           <Button
