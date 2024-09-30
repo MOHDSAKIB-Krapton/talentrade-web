@@ -21,7 +21,7 @@ function Navbar() {
 
           <div className="hidden md:flex space-x-6 lg:space-x-16">
             <a
-              href="#aboutus"
+              href="/about-us"
               className="navoptions hover:text-[#9951DB] ease-linear hover:underline"
             >
               About Us
@@ -104,7 +104,7 @@ function Navbar() {
           }`}
         >
           <a
-            href="#aboutus"
+            href="/about-us"
             className="navoptions hover:text-[#9951DB] ease-linear"
           >
             About Us
