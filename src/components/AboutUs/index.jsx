@@ -99,8 +99,8 @@ const AboutUs = () => {
         opacity: 1,
         y: 0,
         duration: 1,
-        delay: 1.2,
-        scrollTrigger: { trigger: cta, start: "top 80%" },
+        delay: 0.6,
+        scrollTrigger: { trigger: section, start: "top 80%" },
       }
     );
   }, []);

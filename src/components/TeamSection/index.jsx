@@ -1,5 +1,8 @@
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import React, { useEffect, useRef } from "react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const teamMembers = [
   {
@@ -17,10 +20,16 @@ const teamMembers = [
 ];
 
 const TeamSection = () => {
+  const sectionRef = useRef(null);
+  const headingRef = useRef(null);
+  const descriptionRef = useRef(null);
   const teamRef = useRef(null);
 
   useEffect(() => {
+    const section = sectionRef.current;
     const team = teamRef.current;
+    const heading = headingRef.current;
+    const description = descriptionRef.current;
 
     gsap.fromTo(
       team,
@@ -29,21 +38,47 @@ const TeamSection = () => {
         opacity: 1,
         y: 0,
         duration: 1,
-        delay: 1,
-        scrollTrigger: { trigger: team, start: "top 80%" },
+        delay: 0.6,
+        scrollTrigger: { trigger: section, start: "top 80%" },
+      }
+    );
+    gsap.fromTo(
+      heading,
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: 0.6,
+        scrollTrigger: { trigger: section, start: "top 80%" },
+      }
+    );
+    gsap.fromTo(
+      description,
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: 0.6,
+        scrollTrigger: { trigger: section, start: "top 80%" },
       }
     );
   });
 
   return (
-    <section id="team" className="w-full h-full border-b border-gray-200">
+    <section
+      id="team"
+      ref={sectionRef}
+      className="w-full h-full border-b border-gray-200"
+    >
       <div className="max-w-7xl px-4 py-16 mx-auto">
         {/* Team Introduction */}
         <div className="text-center mb-16">
-          <h3 className="heading">
+          <h3 ref={headingRef} className="heading">
             Meet Our <span className="highlight">Team</span>
           </h3>
-          <p className="subheading">
+          <p ref={descriptionRef} className="subheading">
             At TalentTrade, our team is dedicated to empowering individuals to
             learn and teach new skills. With a shared vision of a world where
             knowledge is accessible to everyone, we strive to create a

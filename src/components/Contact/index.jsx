@@ -1,19 +1,60 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import "../../styles.css";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function Contact() {
+  const sectionRef = useRef(null);
+  const headingRef = useRef(null);
+  const descriptionRef = useRef(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    const heading = headingRef.current;
+    const description = descriptionRef.current;
+
+    gsap.fromTo(
+      heading,
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: 0.6,
+        scrollTrigger: { trigger: section, start: "top 80%" },
+      }
+    );
+    gsap.fromTo(
+      description,
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: 0.6,
+        scrollTrigger: { trigger: section, start: "top 80%" },
+      }
+    );
+  });
+
   return (
-    <div className="max-w-7xl mx-auto flex justify-between px-4 py-5">
+    <div
+      id="contact"
+      ref={sectionRef}
+      className="max-w-7xl mx-auto flex justify-between px-4 py-5"
+    >
       <div className="flex-col flex justify-center items-center mx-auto">
         <div className="py-10 flex">
           <div className="mx-auto flex-1 lg:mx-0">
             <div>
-              <h1 className="heading">
+              <h1 ref={headingRef} className="heading">
                 Collaborate for Growth Join Forces with Our{" "}
                 <br className="hidden lg:block" /> Expert{" "}
                 <span className="highlight"> Skill Exchange Community</span>
               </h1>
-              <p className="subheading">
+              <p ref={descriptionRef} className="subheading">
                 Partner with our thriving TalentTrade community to exchange
                 valuable skills and knowledge. We bring together passionate
                 learners and teachers to create an ecosystem where growth is

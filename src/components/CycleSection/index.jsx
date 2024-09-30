@@ -9,6 +9,11 @@ import {
   GraduationCap,
 } from "lucide-react";
 import "../../styles.css";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useRef } from "react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const elements = [
   {
@@ -63,12 +68,50 @@ export default function TalentTradeCycle() {
     "TalentTrade simplifies the process of teaching and learning by offering a structured and rewarding system. " +
     "Our platform is designed to make skill exchange seamless and enjoyable for everyone. Here’s how it works:";
 
+  const sectionRef = useRef(null);
+  const headingRef = useRef(null);
+  const descriptionRef = useRef(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    const heading = headingRef.current;
+    const description = descriptionRef.current;
+
+    // Animate heading and description
+    gsap.fromTo(
+      heading,
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        scrollTrigger: { trigger: section, start: "top 80%" },
+      }
+    );
+    gsap.fromTo(
+      description,
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: 0.4,
+        scrollTrigger: { trigger: section, start: "top 80%" },
+      }
+    );
+  }, []);
+
   return (
-    <div className="border-b border-gray-200">
+    <div ref={sectionRef} className="border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 py-10 flex flex-col gap-y-20 ">
         <div>
-          <h1 className="heading text-start xl:text-center">{flowHeading}</h1>
-          <p className="subheading text-start xl:text-center xl:w-[90%] mx-auto">
+          <h1 ref={headingRef} className="heading text-start xl:text-center">
+            {flowHeading}
+          </h1>
+          <p
+            ref={descriptionRef}
+            className="subheading text-start xl:text-center xl:w-[90%] mx-auto"
+          >
             {flowDescription}
           </p>
         </div>
