@@ -9,11 +9,13 @@ function Contact() {
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
   const descriptionRef = useRef(null);
+  const illustrationRef = useRef(null);
 
   useEffect(() => {
     const section = sectionRef.current;
     const heading = headingRef.current;
     const description = descriptionRef.current;
+    const illustration = illustrationRef.current;
 
     gsap.fromTo(
       heading,
@@ -32,6 +34,17 @@ function Contact() {
       {
         opacity: 1,
         y: 0,
+        duration: 1,
+        delay: 0.6,
+        scrollTrigger: { trigger: section, start: "top 80%" },
+      }
+    );
+    gsap.fromTo(
+      illustration,
+      { opacity: 0, scale: 0.8 },
+      {
+        opacity: 1,
+        scale: 1,
         duration: 1,
         delay: 0.6,
         scrollTrigger: { trigger: section, start: "top 80%" },
@@ -203,7 +216,10 @@ function Contact() {
                   </button>
                 </div>
               </form>
-              <div className="hidden md:flex md:flex-1 mt-16 border border-gray-200 rounded-lg overflow-hidden ml-4">
+              <div
+                ref={illustrationRef}
+                className="hidden md:flex md:flex-1 mt-16 border border-gray-200 rounded-lg overflow-hidden ml-4"
+              >
                 <img
                   src="./contact.jpg"
                   alt="Contact img"

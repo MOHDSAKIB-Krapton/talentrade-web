@@ -9,6 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 function HeroSection() {
   const gridRef = useRef(null); // Create a ref for the grid container
+  const illustrationRef = useRef(null);
 
   useEffect(() => {
     // Apply GSAP animation to the background grid
@@ -18,6 +19,17 @@ function HeroSection() {
       repeat: -1, // Infinite repeat
       duration: 30, // Time it takes for one complete movement
     });
+    gsap.fromTo(
+      illustrationRef.current,
+      { opacity: 0, scale: 0.8 },
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 0.6,
+        delay: 0.2,
+        scrollTrigger: { trigger: gridRef.current, start: "top 80%" },
+      }
+    );
   }, []);
 
   return (
@@ -30,7 +42,7 @@ function HeroSection() {
       }}
     >
       {/* Radial gradient for the container to give a faded look */}
-      <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+      <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_50%,black)]"></div>
 
       <section className="max-w-7xl mx-auto overflow-hidden flex flex-1">
         <div className="flex-1 flex items-start lg:items-start pt-10 md:py-20">
@@ -61,7 +73,10 @@ function HeroSection() {
           </div>
         </div>
 
-        <div className="hidden md:flex md:flex-1 border border-gray-200 rounded-lg overflow-hidden z-10">
+        <div
+          ref={illustrationRef}
+          className="hidden md:flex md:flex-1 border border-gray-200 rounded-lg overflow-hidden z-10"
+        >
           <img
             src="./contact.jpg"
             alt="Contact img"
