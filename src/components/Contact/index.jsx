@@ -1,9 +1,8 @@
-import React, { useState , useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "../../styles.css";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import emailjs from 'emailjs-com';
-
+import emailjs from "emailjs-com";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,76 +12,79 @@ function Contact() {
   const descriptionRef = useRef(null);
   const illustrationRef = useRef(null);
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-    company:'',
-    phone : '',  
-});
+    name: "",
+    email: "",
+    message: "",
+    company: "",
+    phone: "",
+  });
+  const [isLoading, setIsLoading] = useState(false);
+  const [errors, setErrors] = useState({});
 
-const [errors, setErrors] = useState({});
+  const validateForm = () => {
+    let formErrors = {};
 
-const validateForm = () => {
-  let formErrors = {};
+    if (!formData.name.trim()) {
+      formErrors.name = "Full name is required";
+    }
 
-  if (!formData.name.trim()) {
-    formErrors.name = "Full name is required";
-  }
+    if (!formData.email.trim()) {
+      formErrors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      formErrors.email = "Email is invalid";
+    }
 
-  if (!formData.email.trim()) {
-    formErrors.email = "Email is required";
-  } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-    formErrors.email = "Email is invalid";
-  }
+    if (!formData.message.trim()) {
+      formErrors.message = "Message is required";
+    }
 
-  if (!formData.message.trim()) {
-    formErrors.message = "Message is required";
-  }
+    setErrors(formErrors);
+    return Object.keys(formErrors).length === 0;
+  };
 
-  setErrors(formErrors);
-  return Object.keys(formErrors).length === 0;
-};
-
-const handleChange = (e) => {
-  const { name, value } = e.target;
-  setFormData({
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
       ...formData,
       [name]: value,
-  });
-};
+    });
+  };
 
-const sendEmail = async (e) => {
-  e.preventDefault();
+  const sendEmail = async (e) => {
+    e.preventDefault();
 
-  if (validateForm()) {
-    try {
-      const result = await emailjs.send(
-        import.meta.env.VITE_SERVICE_ID,
-        import.meta.env.VITE_TEMPLATE_ID,
-        formData,
-        import.meta.env.VITE_USER_ID
-      );
-      
-      
-      if (result.status === 200) {
-        setFormData({
-          name: '',
-          email: '',
-          message: '',
-          company: '',
-          phone: '',
-        });
-        alert('Message sent successfully!');
-      } else {
-        alert('Failed to send message. Please try again later.');
+    if (validateForm()) {
+      try {
+        setIsLoading(true);
+        const result = await emailjs.send(
+          import.meta.env.VITE_SERVICE_ID,
+          import.meta.env.VITE_TEMPLATE_ID,
+          formData,
+          import.meta.env.VITE_USER_ID
+        );
+
+        if (result.status === 200) {
+          setFormData({
+            name: "",
+            email: "",
+            message: "",
+            company: "",
+            phone: "",
+          });
+
+          // TODO:- Use Custom toast here
+          alert("Message sent successfully!");
+        } else {
+          alert("Failed to send message. Please try again later.");
+        }
+      } catch (error) {
+        console.error("EmailJS error:", error);
+        alert("Failed to send message. Please try again later.");
+      } finally {
+        setIsLoading(false);
       }
-    } catch (error) {
-      console.error("EmailJS error:", error);
-      alert('Failed to send message. Please try again later.');
     }
-  }
-};
-
+  };
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -123,7 +125,7 @@ const sendEmail = async (e) => {
         scrollTrigger: { trigger: section, start: "top 80%" },
       }
     );
-  },[]);
+  }, []);
 
   return (
     <div
@@ -170,7 +172,11 @@ const sendEmail = async (e) => {
                         value={formData.name}
                         onChange={handleChange}
                       />
-                       {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+                      {errors.name && (
+                        <p className="text-red-500 text-sm mt-1">
+                          {errors.name}
+                        </p>
+                      )}
                     </div>
                   </div>
 
@@ -191,8 +197,11 @@ const sendEmail = async (e) => {
                         onChange={handleChange}
                         value={formData.email}
                       />
-                      {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
-              
+                      {errors.email && (
+                        <p className="text-red-500 text-sm mt-1">
+                          {errors.email}
+                        </p>
+                      )}
                     </div>
                   </div>
 
@@ -270,7 +279,11 @@ const sendEmail = async (e) => {
                         aria-describedby="message-description"
                         className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
                       ></textarea>
-                       {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
+                      {errors.message && (
+                        <p className="text-red-500 text-sm mt-1">
+                          {errors.message}
+                        </p>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -283,22 +296,34 @@ const sendEmail = async (e) => {
                 <div className="mt-3 flex justify-center border-t border-gray-900/10 pt-8">
                   <button
                     type="submit"
-                    className="rounded-md bg-primary px-3.5 py-2.5 text-center flex gap-2 items-center text-sm font-semibold text-white shadow-sm bg-[#9951DB] hover:bg-[#9951DB] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                    className={`rounded-md bg-primary px-3.5 py-2.5 text-center flex gap-2 items-center text-sm font-semibold text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-all duration-300 ease-in-out  ${
+                      isLoading
+                        ? "bg-gray-400 cursor-wait"
+                        : "bg-[#9951DB] hover:bg-[#9951DB] cursor-pointer"
+                    }`}
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth="1.5"
-                      stroke="currentColor"
-                      className="w-5 h-5"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"
-                      />
-                    </svg>
+                    {isLoading ? (
+                      <div className="flex justify-center items-center">
+                        <div className="relative w-5 h-5">
+                          <div className="absolute border-2 border-t-transparent border-white rounded-full w-full h-full animate-spin" />
+                        </div>
+                      </div>
+                    ) : (
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth="1.5"
+                        stroke="currentColor"
+                        className="w-5 h-5"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"
+                        />
+                      </svg>
+                    )}
                     Send message
                   </button>
                 </div>
