@@ -2,66 +2,8 @@ import React, { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
 import { Logo, Name } from "../../assets";
-import { useLocation } from "react-router-dom";
-import { NavLink } from "react-router-dom";
 
-const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "About Us", href: "/about-us" },
-  { label: "Features", href: "#features" },
-  { label: "Contact Us", href: "#contactus" },
-];
-
-const NavLinks = ({ href, label, className }) => {
-  const location = useLocation();
-  const isActive = location.pathname === href.split("#")[0]; // Check active route ignoring hash
-
-  return (
-    <NavLink
-      to={href}
-      className={`relative navoptions group ${className} ${
-        isActive ? "text-[#9951DB]" : ""
-      }`}
-    >
-      {label}
-      <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#9951DB] transition-all duration-300 ease-out group-hover:w-full rounded-full" />
-    </NavLink>
-  );
-};
-
-const DesktopMenu = ({ links }) => (
-  <div className="hidden md:flex space-x-6 lg:space-x-16">
-    {links.map((link) => (
-      <NavLinks key={link.label} href={link.href} label={link.label} />
-    ))}
-  </div>
-);
-
-const MobileMenu = ({ links, isOpen }) => (
-  <>
-    {isOpen && (
-      <div className="flex flex-col items-center space-y-4 pb-4 transition-all duration-300 ease-in-out md:hidden">
-        {links.map((link) => (
-          <NavLinks key={link.label} href={link.href} label={link.label} />
-        ))}
-        <Button
-          variant="outlined"
-          className="cursor-pointer self-center "
-          style={{
-            color: "#9951DB",
-            borderColor: "#9951DB",
-            fontFamily: "Poppins, sans-serif",
-          }}
-          endIcon={<SendIcon />}
-        >
-          Start Learning
-        </Button>
-      </div>
-    )}
-  </>
-);
-
-function Navbar({ links = navLinks, buttonText = "Start Learning" }) {
+function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -72,12 +14,37 @@ function Navbar({ links = navLinks, buttonText = "Start Learning" }) {
     <div className="w-full z-50 sticky backdrop-blur-lg top-0">
       <div className="w-full h-auto poppins-medium cursor-pointer z-20 sticky backdrop-blur-lg max-w-7xl mx-auto">
         <div className="w-full h-full flex justify-between items-center px-4 py-1.5">
-          <a href="/" className="flex items-center space-x-1 cursor-pointer">
+          <div className="flex items-center space-x-1">
             <Logo />
             <Name />
-          </a>
+          </div>
 
-          <DesktopMenu links={links} />
+          <div className="hidden md:flex space-x-6 lg:space-x-16">
+            <a
+              href="#aboutus"
+              className="navoptions hover:text-[#9951DB] ease-linear hover:underline"
+            >
+              About Us
+            </a>
+            <a
+              href="#features"
+              className="navoptions hover:text-[#9951DB] ease-linear hover:underline"
+            >
+              Features
+            </a>
+            <a
+              href="#collaborate"
+              className="navoptions hover:text-[#9951DB] ease-linear hover:underline"
+            >
+              Collaborate
+            </a>
+            <a
+              href="#contactus"
+              className="navoptions hover:text-[#9951DB] ease-linear hover:underline"
+            >
+              Contact Us
+            </a>
+          </div>
 
           <div className="hidden md:block">
             <Button
@@ -90,7 +57,7 @@ function Navbar({ links = navLinks, buttonText = "Start Learning" }) {
               }}
               endIcon={<SendIcon />}
             >
-              {buttonText}
+              Start Learning
             </Button>
           </div>
 
@@ -131,7 +98,50 @@ function Navbar({ links = navLinks, buttonText = "Start Learning" }) {
           </div>
         </div>
 
-        <MobileMenu links={links} isOpen={isMenuOpen} />
+        <div
+          className={`md:hidden overflow-hidden flex flex-col items-center space-y-4 pb-4 transition-all duration-300 ease-in-out ${
+            isMenuOpen ? "min-h-50 opacity-100" : "max-h-0 opacity-0"
+          }`}
+        >
+          <a
+            href="#aboutus"
+            className="navoptions hover:text-[#9951DB] ease-linear"
+          >
+            About Us
+          </a>
+          <a
+            href="#features"
+            className="navoptions hover:text-[#9951DB] ease-linear"
+          >
+            Features
+          </a>
+          <a
+            href="#collaborate"
+            className="navoptions hover:text-[#9951DB] ease-linear"
+          >
+            Collaborate
+          </a>
+          <a
+            href="#contactus"
+            className="navoptions hover:text-[#9951DB] ease-linear"
+          >
+            Contact Us
+          </a>
+
+          <Button
+            variant="outlined"
+            className="cursor-pointer w-full"
+            style={{
+              color: "#9951DB",
+              borderColor: "#9951DB",
+              width: "auto",
+              fontFamily: "Poppins, sans-serif",
+            }}
+            endIcon={<SendIcon />}
+          >
+            Start Learning
+          </Button>
+        </div>
       </div>
     </div>
   );
