@@ -1,7 +1,9 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState , useEffect, useRef } from "react";
 import "../../styles.css";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import emailjs from 'emailjs-com';
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -9,11 +11,84 @@ function Contact() {
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
   const descriptionRef = useRef(null);
+  const illustrationRef = useRef(null);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+    company:'',
+    phone : '',  
+});
+
+const [errors, setErrors] = useState({});
+
+const validateForm = () => {
+  let formErrors = {};
+
+  if (!formData.name.trim()) {
+    formErrors.name = "Full name is required";
+  }
+
+  if (!formData.email.trim()) {
+    formErrors.email = "Email is required";
+  } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+    formErrors.email = "Email is invalid";
+  }
+
+  if (!formData.message.trim()) {
+    formErrors.message = "Message is required";
+  }
+
+  setErrors(formErrors);
+  return Object.keys(formErrors).length === 0;
+};
+
+const handleChange = (e) => {
+  const { name, value } = e.target;
+  setFormData({
+      ...formData,
+      [name]: value,
+  });
+};
+
+const sendEmail = async (e) => {
+  e.preventDefault();
+
+  if (validateForm()) {
+    try {
+      const result = await emailjs.send(
+        import.meta.env.VITE_SERVICE_ID,
+        import.meta.env.VITE_TEMPLATE_ID,
+        formData,
+        import.meta.env.VITE_USER_ID
+      );
+      
+      
+      if (result.status === 200) {
+        setFormData({
+          name: '',
+          email: '',
+          message: '',
+          company: '',
+          phone: '',
+        });
+        alert('Message sent successfully!');
+      } else {
+        alert('Failed to send message. Please try again later.');
+      }
+    } catch (error) {
+      console.error("EmailJS error:", error);
+      alert('Failed to send message. Please try again later.');
+    }
+  }
+};
+
 
   useEffect(() => {
     const section = sectionRef.current;
     const heading = headingRef.current;
     const description = descriptionRef.current;
+    const illustration = illustrationRef.current;
 
     gsap.fromTo(
       heading,
@@ -37,7 +112,18 @@ function Contact() {
         scrollTrigger: { trigger: section, start: "top 80%" },
       }
     );
-  });
+    gsap.fromTo(
+      illustration,
+      { opacity: 0, scale: 0.8 },
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 1,
+        delay: 0.6,
+        scrollTrigger: { trigger: section, start: "top 80%" },
+      }
+    );
+  },[]);
 
   return (
     <div
@@ -65,11 +151,11 @@ function Contact() {
             </div>
 
             <div className="flex flex-1">
-              <form className="mt-16 flex flex-1 flex-col">
+              <form className="mt-16 flex flex-1 flex-col" onSubmit={sendEmail}>
                 <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                   <div className="sm:col-span-2">
                     <label
-                      htmlFor="full-name"
+                      htmlFor="name"
                       className="block text-sm font-semibold leading-6 text-gray-900"
                     >
                       Full name
@@ -77,11 +163,14 @@ function Contact() {
                     <div className="mt-2.5">
                       <input
                         type="text"
-                        id="full-name"
+                        id="name"
                         autoComplete="given-name"
                         className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
-                        name="full-name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
                       />
+                       {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
                     </div>
                   </div>
 
@@ -99,7 +188,11 @@ function Contact() {
                         autoComplete="email"
                         className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
                         name="email"
+                        onChange={handleChange}
+                        value={formData.email}
                       />
+                      {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+              
                     </div>
                   </div>
 
@@ -123,6 +216,8 @@ function Contact() {
                         aria-describedby="company-description"
                         className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
                         name="company"
+                        value={formData.company}
+                        onChange={handleChange}
                       />
                     </div>
                   </div>
@@ -147,6 +242,8 @@ function Contact() {
                         aria-describedby="phone-description"
                         className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
                         name="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
                       />
                     </div>
                   </div>
@@ -167,10 +264,13 @@ function Contact() {
                       <textarea
                         id="message"
                         name="message"
+                        value={formData.message}
+                        onChange={handleChange}
                         rows="4"
                         aria-describedby="message-description"
                         className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
                       ></textarea>
+                       {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
                     </div>
                   </div>
                 </div>
@@ -182,7 +282,7 @@ function Contact() {
                 </small>
                 <div className="mt-3 flex justify-center border-t border-gray-900/10 pt-8">
                   <button
-                    type="button"
+                    type="submit"
                     className="rounded-md bg-primary px-3.5 py-2.5 text-center flex gap-2 items-center text-sm font-semibold text-white shadow-sm bg-[#9951DB] hover:bg-[#9951DB] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                   >
                     <svg
@@ -203,7 +303,10 @@ function Contact() {
                   </button>
                 </div>
               </form>
-              <div className="hidden md:flex md:flex-1 mt-16 border border-gray-200 rounded-lg overflow-hidden ml-4">
+              <div
+                ref={illustrationRef}
+                className="hidden md:flex md:flex-1 mt-16 border border-gray-200 rounded-lg overflow-hidden ml-4"
+              >
                 <img
                   src="./contact.jpg"
                   alt="Contact img"
