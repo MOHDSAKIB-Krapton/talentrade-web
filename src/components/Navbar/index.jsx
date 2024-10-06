@@ -12,7 +12,7 @@ const navLinks = [
   { label: "Contact Us", href: "/contact-us" },
 ];
 
-const NavLinks = ({ href, label, className }) => {
+const NavLinks = ({ href, label, className, onClick }) => {
   const location = useLocation();
   const isActive = location.pathname === href.split("#")[0]; // Check active route ignoring hash
 
@@ -22,6 +22,7 @@ const NavLinks = ({ href, label, className }) => {
       className={`relative navoptions group ${className} ${
         isActive ? "text-[#9951DB]" : ""
       }`}
+      onClick={onClick}
     >
       {label}
       <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#9951DB] transition-all duration-300 ease-out group-hover:w-full rounded-full" />
@@ -29,20 +30,30 @@ const NavLinks = ({ href, label, className }) => {
   );
 };
 
-const DesktopMenu = ({ links }) => (
+const DesktopMenu = ({ links, toggleMenu }) => (
   <div className="hidden md:flex space-x-6 lg:space-x-16">
     {links.map((link) => (
-      <NavLinks key={link.label} href={link.href} label={link.label} />
+      <NavLinks
+        key={link.label}
+        href={link.href}
+        label={link.label}
+        onClick={toggleMenu}
+      />
     ))}
   </div>
 );
 
-const MobileMenu = ({ links, isOpen }) => (
+const MobileMenu = ({ links, isOpen, toggleMenu }) => (
   <>
     {isOpen && (
-      <div className="flex flex-col items-center space-y-4 pb-4 transition-all duration-300 ease-in-out md:hidden">
+      <div className="flex flex-col items-center space-y-4 pb-4 transition-all duration-300 ease-in-out md:hidden z-20">
         {links.map((link) => (
-          <NavLinks key={link.label} href={link.href} label={link.label} />
+          <NavLinks
+            key={link.label}
+            href={link.href}
+            label={link.label}
+            onClick={toggleMenu}
+          />
         ))}
         <Button
           variant="outlined"
@@ -69,7 +80,7 @@ function Navbar({ links = navLinks, buttonText = "Start Learning" }) {
   };
 
   return (
-    <div className="w-full z-50 fixed md:sticky backdrop-blur-lg top-0">
+    <div className="w-full z-50 sticky md:sticky backdrop-blur-lg top-0 ">
       <div className="w-full h-auto poppins-medium cursor-pointer z-20 sticky backdrop-blur-lg max-w-7xl mx-auto">
         <div className="w-full h-full flex justify-between items-center px-4 py-1.5">
           <a href="/" className="flex items-center space-x-1 cursor-pointer">
@@ -77,7 +88,7 @@ function Navbar({ links = navLinks, buttonText = "Start Learning" }) {
             <Name />
           </a>
 
-          <DesktopMenu links={links} />
+          <DesktopMenu links={links} toggleMenu={toggleMenu} />
 
           <div className="hidden md:block">
             <Button
@@ -131,7 +142,7 @@ function Navbar({ links = navLinks, buttonText = "Start Learning" }) {
           </div>
         </div>
 
-        <MobileMenu links={links} isOpen={isMenuOpen} />
+        <MobileMenu links={links} isOpen={isMenuOpen} toggleMenu={toggleMenu} />
       </div>
     </div>
   );

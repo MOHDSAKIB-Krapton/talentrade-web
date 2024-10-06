@@ -3,8 +3,7 @@ import "../../styles.css";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import emailjs from "emailjs-com";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast, Toaster } from "sonner";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -58,10 +57,20 @@ function Contact() {
     if (validateForm()) {
       try {
         setIsLoading(true);
+
+        const templateParams = {
+          to_name: "Talentrade Team", // This could be set dynamically from form input or defaulted
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          company: formData.company || "", // Company can be optional
+          phone: formData.phone || "", // Phone can be optional
+        };
+
         const result = await emailjs.send(
           import.meta.env.VITE_SERVICE_ID,
           import.meta.env.VITE_TEMPLATE_ID,
-          formData,
+          templateParams,
           import.meta.env.VITE_USER_ID
         );
 
@@ -73,13 +82,12 @@ function Contact() {
             company: "",
             phone: "",
           });
-          notify();
+          toast.success("Email sent successfully");
         } else {
-          notifyError();
+          toast.error("Email could not be sent, please try again");
         }
       } catch (error) {
-        console.error("EmailJS error:", error);
-        notifyError();
+        toast.error("Some Unknown Error occured, please try again");
       } finally {
         setIsLoading(false);
       }
@@ -126,18 +134,6 @@ function Contact() {
       }
     );
   }, []);
-
-  const notify = () => toast("Message sent successfully!",{
-      position:'bottom-right',
-      className:'bg-purple-500 text-white',
-      progressClassName:'bg-white',
-  });
-
-  const notifyError = () => toast.error("Failed to send message. Please try again later.",{
-    position:'bottom-right',
-    className:'bg-red-500 text-white',
-    progressClassName:'bg-white',
-});
 
   return (
     <div
@@ -313,7 +309,7 @@ function Contact() {
                         ? "bg-gray-400 cursor-wait"
                         : "bg-[#9951DB] hover:bg-[#9951DB] cursor-pointer"
                     }`}
-    
+                    disabled={isLoading}
                   >
                     {isLoading ? (
                       <div className="flex justify-center items-center">
@@ -355,7 +351,7 @@ function Contact() {
           </div>
         </div>
       </div>
-      <ToastContainer />
+      <Toaster richColors />
     </div>
   );
 }
