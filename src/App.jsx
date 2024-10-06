@@ -29,6 +29,14 @@ function App() {
             </Layout>
           }
         />
+        <Route
+          path="/contact-us"
+          element={
+            <Layout>
+              <Contact/>
+            </Layout>
+          }
+        />
       </Routes>
     </Router>
   );
