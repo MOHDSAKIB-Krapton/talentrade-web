@@ -60,12 +60,18 @@ function Contact() {
 
         const templateParams = {
           to_name: "Talentrade Team", // This could be set dynamically from form input or defaulted
-          name: formData.name,
-          email: formData.email,
+          from_name: formData.name,
+          from_email: formData.email,
+          reply_to: formData.email,
           message: formData.message,
           company: formData.company || "", // Company can be optional
           phone: formData.phone || "", // Phone can be optional
         };
+
+        console.log(templateParams);
+        console.log("VITE_SERVICE_ID", import.meta.env.VITE_SERVICE_ID);
+        console.log("VITE_TEMPLATE_ID", import.meta.env.VITE_TEMPLATE_ID);
+        console.log("VITE_USER_ID", import.meta.env.VITE_USER_ID);
 
         const result = await emailjs.send(
           import.meta.env.VITE_SERVICE_ID,
