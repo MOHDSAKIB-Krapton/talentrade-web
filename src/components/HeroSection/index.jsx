@@ -42,9 +42,9 @@ function HeroSection() {
       }}
     >
       {/* Radial gradient for the container to give a faded look */}
-      <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_50%,black)]"></div>
+      <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_50%,black)]" />
 
-      <section className="max-w-7xl mx-auto overflow-hidden flex flex-1">
+      <section className="max-w-7xl mx-auto overflow-hidden flex flex-1 self-center">
         <div className="flex-1 flex items-start lg:items-start pt-10 md:py-20">
           <div className="text-center space-y-4 px-4 py-10 w-full">
             <h1 className="heading">

@@ -94,12 +94,7 @@ function Features() {
                 <div className="flex justify-center mb-4">
                   <img src={feature.icon} alt="icon gif" className="w-24" />
                 </div>
-                <Typography
-                  variant="h6"
-                  className="text-xl font-bold mb-2 poppins-semibold"
-                >
-                  {feature.title}
-                </Typography>
+                <h2 className="text-xl font-medium">{feature.title}</h2>
                 <p className="subheading text-sm">{feature.description}</p>
               </CardContent>
             </div>

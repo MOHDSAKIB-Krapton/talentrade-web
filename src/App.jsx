@@ -1,13 +1,4 @@
-import { useState } from "react";
-import {
-  Navbar,
-  HeroSection,
-  Footer,
-  Features,
-  Contact,
-  TalentTradeCycle,
-  Section4,
-} from "./components";
+import { HeroSection, Features, Contact, TalentTradeCycle } from "./components";
 import AboutUs from "./components/AboutUs";
 import TeamSection from "./components/TeamSection";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";

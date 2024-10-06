@@ -102,7 +102,9 @@ const TeamSection = () => {
                 <h4 className="font-semibold text-xl">{member.name}</h4>
                 <p className="text-gray-600 font-semibold">{member.role}</p>
                 {/* Bio Section */}
-                <p className="mt-4 text-gray-500 text-sm">{member.bio}</p>
+                <p className="mt-4 text-gray-500 text-sm text-ellipsis line-clamp-3">
+                  {member.bio}
+                </p>
               </div>
             ))}
           </div>
