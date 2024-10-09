@@ -3,7 +3,8 @@ import "../../styles.css";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import emailjs from "emailjs-com";
-import { toast, Toaster } from "sonner";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -57,26 +58,10 @@ function Contact() {
     if (validateForm()) {
       try {
         setIsLoading(true);
-
-        const templateParams = {
-          to_name: "Talentrade Team", // This could be set dynamically from form input or defaulted
-          from_name: formData.name,
-          from_email: formData.email,
-          reply_to: formData.email,
-          message: formData.message,
-          company: formData.company || "", // Company can be optional
-          phone: formData.phone || "", // Phone can be optional
-        };
-
-        console.log(templateParams);
-        console.log("VITE_SERVICE_ID", import.meta.env.VITE_SERVICE_ID);
-        console.log("VITE_TEMPLATE_ID", import.meta.env.VITE_TEMPLATE_ID);
-        console.log("VITE_USER_ID", import.meta.env.VITE_USER_ID);
-
         const result = await emailjs.send(
           import.meta.env.VITE_SERVICE_ID,
           import.meta.env.VITE_TEMPLATE_ID,
-          templateParams,
+          formData,
           import.meta.env.VITE_USER_ID
         );
 
@@ -88,12 +73,13 @@ function Contact() {
             company: "",
             phone: "",
           });
-          toast.success("Email sent successfully");
+          notify();
         } else {
-          toast.error("Email could not be sent, please try again");
+          notifyError();
         }
       } catch (error) {
-        toast.error("Some Unknown Error occured, please try again");
+        console.error("EmailJS error:", error);
+        notifyError();
       } finally {
         setIsLoading(false);
       }
@@ -140,6 +126,18 @@ function Contact() {
       }
     );
   }, []);
+
+  const notify = () => toast("Message sent successfully!",{
+      position:'bottom-right',
+      className:'bg-purple-500 text-white',
+      progressClassName:'bg-white',
+  });
+
+  const notifyError = () => toast.error("Failed to send message. Please try again later.",{
+    position:'bottom-right',
+    className:'bg-red-500 text-white',
+    progressClassName:'bg-white',
+});
 
   return (
     <div
@@ -315,7 +313,7 @@ function Contact() {
                         ? "bg-gray-400 cursor-wait"
                         : "bg-[#9951DB] hover:bg-[#9951DB] cursor-pointer"
                     }`}
-                    disabled={isLoading}
+    
                   >
                     {isLoading ? (
                       <div className="flex justify-center items-center">
@@ -357,7 +355,7 @@ function Contact() {
           </div>
         </div>
       </div>
-      <Toaster richColors />
+      <ToastContainer />
     </div>
   );
 }
