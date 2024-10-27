@@ -3,8 +3,8 @@ import "../../styles.css";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import emailjs from "emailjs-com";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -127,17 +127,19 @@ function Contact() {
     );
   }, []);
 
-  const notify = () => toast("Message sent successfully!",{
-      position:'bottom-right',
-      className:'bg-purple-500 text-white',
-      progressClassName:'bg-white',
-  });
+  const notify = () =>
+    toast("Message sent successfully!", {
+      position: "bottom-right",
+      className: "bg-purple-500 text-white",
+      progressClassName: "bg-white",
+    });
 
-  const notifyError = () => toast.error("Failed to send message. Please try again later.",{
-    position:'bottom-right',
-    className:'bg-red-500 text-white',
-    progressClassName:'bg-white',
-});
+  const notifyError = () =>
+    toast.error("Failed to send message. Please try again later.", {
+      position: "bottom-right",
+      className: "bg-red-500 text-white",
+      progressClassName: "bg-white",
+    });
 
   return (
     <div
@@ -313,7 +315,6 @@ function Contact() {
                         ? "bg-gray-400 cursor-wait"
                         : "bg-[#9951DB] hover:bg-[#9951DB] cursor-pointer"
                     }`}
-    
                   >
                     {isLoading ? (
                       <div className="flex justify-center items-center">

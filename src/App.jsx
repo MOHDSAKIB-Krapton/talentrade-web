@@ -3,7 +3,7 @@ import AboutUs from "./components/AboutUs";
 import TeamSection from "./components/TeamSection";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Layout from "./components/layout";
-import { Toaster } from "sonner";
+import FeaturesScreen from "./components/FeatureScreen";
 
 function App() {
   return (
@@ -27,6 +27,14 @@ function App() {
             <Layout>
               <AboutUs />
               <TeamSection />
+            </Layout>
+          }
+        />
+        <Route
+          path="/features"
+          element={
+            <Layout>
+              <FeaturesScreen />
             </Layout>
           }
         />
