@@ -111,7 +111,7 @@ export default function JoinTalentrade({ feature }) {
 
   return (
     <div ref={sectionRef} className="border-b border-gray-200">
-      <div className="max-w-7xl mx-auto px-8 pb-10 flex flex-col gap-y-20 ">
+      <div className="max-w-7xl mx-auto px-4 pb-16 flex flex-col gap-y-20 ">
         <div>
           <h1 ref={headingRef} className="heading text-start xl:text-center">
             {heading}
@@ -126,7 +126,7 @@ export default function JoinTalentrade({ feature }) {
 
         <div
           ref={imageRef}
-          className=" bg-white border-4 border-gray-600 rounded-md max-w-[60%] mx-auto"
+          className=" bg-white border-4 border-gray-200 rounded-md w-full md:max-w-[90%] lg:max-w-[60%] mx-auto"
         >
           <img
             src={image}
