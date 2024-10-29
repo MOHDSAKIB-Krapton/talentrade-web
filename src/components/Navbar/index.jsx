@@ -43,7 +43,7 @@ const DesktopMenu = ({ links, toggleMenu }) => (
   </div>
 );
 
-const MobileMenu = ({ links, isOpen, toggleMenu }) => (
+const MobileMenu = ({ links, isOpen, toggleMenu, buttonText }) => (
   <>
     {isOpen && (
       <div className="flex flex-col items-center space-y-4 pb-4 transition-all duration-300 ease-in-out md:hidden z-20">
@@ -65,14 +65,14 @@ const MobileMenu = ({ links, isOpen, toggleMenu }) => (
           }}
           endIcon={<SendIcon />}
         >
-          Start Learning
+          {buttonText}
         </Button>
       </div>
     )}
   </>
 );
 
-function Navbar({ links = navLinks, buttonText = "Start Learning" }) {
+function Navbar({ links = navLinks, buttonText = "Get App Now" }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -142,7 +142,12 @@ function Navbar({ links = navLinks, buttonText = "Start Learning" }) {
           </div>
         </div>
 
-        <MobileMenu links={links} isOpen={isMenuOpen} toggleMenu={toggleMenu} />
+        <MobileMenu
+          links={links}
+          isOpen={isMenuOpen}
+          toggleMenu={toggleMenu}
+          buttonText={buttonText}
+        />
       </div>
     </div>
   );

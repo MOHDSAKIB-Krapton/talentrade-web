@@ -4,6 +4,8 @@ import TeamSection from "./components/TeamSection";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Layout from "./components/layout";
 import FeaturesScreen from "./components/FeatureScreen";
+import FAQuestions from "./components/FAQ";
+import MainSection1 from "./components/Extra";
 
 function App() {
   return (
@@ -16,8 +18,9 @@ function App() {
               <HeroSection />
               <Features />
               <TalentTradeCycle />
-              <TeamSection />
               <Contact />
+              <FAQuestions />
+              {/* <MainSection1 /> */}
             </Layout>
           }
         />
