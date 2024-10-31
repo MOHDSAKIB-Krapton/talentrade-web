@@ -81,7 +81,7 @@ function Navbar({ links = navLinks, buttonText = "Get App Now" }) {
 
   return (
     <div className="w-full z-50 sticky md:sticky backdrop-blur-lg top-0 ">
-      <div className="w-full h-auto poppins-medium cursor-pointer z-20 sticky backdrop-blur-lg max-w-7xl mx-auto">
+      <div className="w-full h-auto poppins-medium z-20 sticky backdrop-blur-lg max-w-7xl mx-auto">
         <div className="w-full h-full flex justify-between items-center px-4 py-1.5">
           <a href="/" className="flex items-center space-x-1 cursor-pointer">
             <Logo />

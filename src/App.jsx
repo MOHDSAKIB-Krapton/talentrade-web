@@ -5,7 +5,7 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Layout from "./components/layout";
 import FeaturesScreen from "./components/FeatureScreen";
 import FAQuestions from "./components/FAQ";
-import MainSection1 from "./components/Extra";
+import WaitListSection from "./components/WaitListSection";
 
 function App() {
   return (
@@ -18,9 +18,9 @@ function App() {
               <HeroSection />
               <Features />
               <TalentTradeCycle />
+              <WaitListSection />
               <Contact />
               <FAQuestions />
-              {/* <MainSection1 /> */}
             </Layout>
           }
         />

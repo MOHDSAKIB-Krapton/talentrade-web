@@ -22,7 +22,7 @@ const FAQuestions = () => {
               className="border-b border-gray-200 hover:bg-gray-50 px-4 py-2 cursor-pointer"
             >
               <div className="flex justify-between items-center w-full py-4 text-left">
-                <span className="text-sm font-semibold leading-6 text-gray-900">
+                <span className="text-base font-semibold leading-6 text-gray-900">
                   {faq.question}
                 </span>
                 <ChevronDown
@@ -32,7 +32,7 @@ const FAQuestions = () => {
                 />
               </div>
               {openIndex === index && (
-                <div className="text-sm font-semibold leading-6 text-gray-600">
+                <div className="text-sm font-medium leading-6 text-gray-600">
                   {faq.answer}
                 </div>
               )}
