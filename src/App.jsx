@@ -6,6 +6,7 @@ import Layout from "./components/layout";
 import FeaturesScreen from "./components/FeatureScreen";
 import FAQuestions from "./components/FAQ";
 import WaitListSection from "./components/WaitListSection";
+import WaitingCard from "./components/WaitingCard";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
               <Features />
               <TalentTradeCycle />
               <WaitListSection />
+              <WaitingCard />
               <Contact />
               <FAQuestions />
             </Layout>
