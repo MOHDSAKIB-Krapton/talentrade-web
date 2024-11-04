@@ -33,7 +33,7 @@ const testimonials = [
   },
 ];
 
-const AboutUs = () => {
+const AboutUsScreen = () => {
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
   const bodyTextRef = useRef(null);
@@ -209,4 +209,4 @@ const AboutUs = () => {
   );
 };
 
-export default AboutUs;
+export default AboutUsScreen;

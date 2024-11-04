@@ -1,57 +1,21 @@
-import { HeroSection, Features, Contact, TalentTradeCycle } from "./components";
-import AboutUs from "./components/AboutUs";
-import TeamSection from "./components/TeamSection";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Layout from "./components/layout";
-import FeaturesScreen from "./components/FeatureScreen";
-import FAQuestions from "./components/FAQ";
-import WaitListSection from "./components/WaitListSection";
-import WaitingCard from "./components/WaitingCard";
+import Home from "./app/home";
+import Aboutus from "./app/aboutus";
+import Features from "./app/features";
+import Contactus from "./app/contact";
 
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Layout>
-              <HeroSection />
-              <Features />
-              <TalentTradeCycle />
-              <WaitListSection />
-              <WaitingCard />
-              <Contact />
-              <FAQuestions />
-            </Layout>
-          }
-        />
-        <Route
-          path="/about-us"
-          element={
-            <Layout>
-              <AboutUs />
-              <TeamSection />
-            </Layout>
-          }
-        />
-        <Route
-          path="/features"
-          element={
-            <Layout>
-              <FeaturesScreen />
-            </Layout>
-          }
-        />
-        <Route
-          path="/contact-us"
-          element={
-            <Layout>
-              <Contact />
-            </Layout>
-          }
-        />
-      </Routes>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about-us" element={<Aboutus />} />
+          <Route path="/features" element={<Features />} />
+          <Route path="/contact-us" element={<Contactus />} />
+        </Routes>
+      </Layout>
     </Router>
   );
 }
