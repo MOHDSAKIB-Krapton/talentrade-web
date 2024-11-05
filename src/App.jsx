@@ -4,6 +4,7 @@ import Home from "./app/home";
 import Aboutus from "./app/aboutus";
 import Features from "./app/features";
 import Contactus from "./app/contact";
+import NotFound from "./app/notfound";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/about-us" element={<Aboutus />} />
           <Route path="/features" element={<Features />} />
           <Route path="/contact-us" element={<Contactus />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>
     </Router>

@@ -1,8 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowRightIcon, ChevronLeft, ChevronRight } from "lucide-react";
-import { Button } from "@mui/material";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -46,63 +44,62 @@ const AboutUsScreen = () => {
     const heading = headingRef.current;
     const bodyText = bodyTextRef.current;
     const illustration = illustrationRef.current;
-    const testimonial = testimonialRef.current;
     const cta = ctaRef.current;
 
-    gsap.fromTo(
-      heading,
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        scrollTrigger: { trigger: section, start: "top 80%" },
-      }
-    );
-    gsap.fromTo(
-      bodyText,
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        delay: 0.4,
-        scrollTrigger: { trigger: section, start: "top 80%" },
-      }
-    );
-    gsap.fromTo(
-      illustration,
-      { opacity: 0, scale: 0.8 },
-      {
-        opacity: 1,
-        scale: 1,
-        duration: 1,
-        delay: 0.6,
-        scrollTrigger: { trigger: section, start: "top 80%" },
-      }
-    );
-    gsap.fromTo(
-      testimonial,
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        delay: 0.8,
-        scrollTrigger: { trigger: testimonial, start: "top 80%" },
-      }
-    );
-    gsap.fromTo(
-      cta,
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        delay: 0.6,
-        scrollTrigger: { trigger: section, start: "top 80%" },
-      }
-    );
+    if (heading && section) {
+      gsap.fromTo(
+        heading,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          scrollTrigger: { trigger: section, start: "top 80%" },
+        }
+      );
+    }
+
+    if (bodyText && section) {
+      gsap.fromTo(
+        bodyText,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          delay: 0.4,
+          scrollTrigger: { trigger: section, start: "top 80%" },
+        }
+      );
+    }
+
+    if (illustration && section) {
+      gsap.fromTo(
+        illustration,
+        { opacity: 0, scale: 0.8 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 1,
+          delay: 0.6,
+          scrollTrigger: { trigger: section, start: "top 80%" },
+        }
+      );
+    }
+
+    if (cta && section) {
+      gsap.fromTo(
+        cta,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          delay: 0.6,
+          scrollTrigger: { trigger: section, start: "top 80%" },
+        }
+      );
+    }
   }, []);
 
   return (
