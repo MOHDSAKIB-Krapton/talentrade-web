@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import emailjs from "emailjs-com";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import EmailServices from "../../services/email";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -55,34 +56,36 @@ function Contact() {
   const sendEmail = async (e) => {
     e.preventDefault();
 
-    if (validateForm()) {
-      try {
-        setIsLoading(true);
-        const result = await emailjs.send(
-          import.meta.env.VITE_SERVICE_ID,
-          import.meta.env.VITE_TEMPLATE_ID,
-          formData,
-          import.meta.env.VITE_USER_ID
-        );
+    if (!validateForm()) {
+      console.log("Form Validation Failed");
+      return;
+    }
 
-        if (result.status === 200) {
-          setFormData({
-            name: "",
-            email: "",
-            message: "",
-            company: "",
-            phone: "",
-          });
-          notify();
-        } else {
-          notifyError();
-        }
-      } catch (error) {
-        console.error("EmailJS error:", error);
-        notifyError();
-      } finally {
-        setIsLoading(false);
+    setIsLoading(true);
+    try {
+      const response = await EmailServices.sendEmail(
+        formData.name,
+        formData.email,
+        formData.message,
+        formData.company,
+        formData.phone
+      );
+
+      if (response.status === 200) {
+        setFormData({
+          name: "",
+          email: "",
+          message: "",
+          company: "",
+          phone: "",
+        });
+        notify();
       }
+    } catch (error) {
+      console.error("EmailJS error:", error);
+      notifyError();
+    } finally {
+      setIsLoading(false);
     }
   };
 
